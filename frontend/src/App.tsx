@@ -1,11 +1,12 @@
 import React from "react";
 import "./App.css";
+import TransactionsPage from "./pages/TransactionsPage";
 
 function App() {
   return (
-    <h1 className="text-3xl font-bold underline text-red-600">
-      Simple React Typescript Tailwind Sample
-    </h1>
+    <div className="min-h-screen bg-gray-100 py-6">
+      <TransactionsPage />
+    </div>
   );
 }
 
