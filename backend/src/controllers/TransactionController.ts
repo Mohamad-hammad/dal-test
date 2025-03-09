@@ -5,14 +5,28 @@ import { TransactionType } from '../entities/enums/TransactionType';
 
 export const getAllTransactions = async (req: Request, res: Response) => {
     try {
+        const page = parseInt(req.query.page as string) || 1;
+        const pageSize = parseInt(req.query.pageSize as string) || 10;
+        const skip = (page - 1) * pageSize;
+
         const transactionRepository = AppDataSource.getRepository(Transaction);
-        const transactions = await transactionRepository.find({
-            order: {
-                timestamp: 'DESC'
+        
+        const [transactions, total] = await transactionRepository
+            .createQueryBuilder('transaction')
+            .orderBy('transaction.timestamp', 'DESC')
+            .skip(skip)
+            .take(pageSize)
+            .getManyAndCount();
+        
+        res.json({
+            transactions,
+            pagination: {
+                total,
+                page,
+                pageSize,
+                totalPages: Math.ceil(total / pageSize)
             }
         });
-        
-        res.json(transactions);
     } catch (error) {
         res.status(500).json({ 
             message: 'Error fetching transactions', 
