@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { config } from "../config";
 import TransactionList from "../components/TransactionList";
 import TransactionListHeader from "../components/TransactionListHeader";
@@ -18,6 +19,7 @@ interface PaginationInfo {
 }
 
 const TransactionsPage: React.FC = () => {
+  const navigate = useNavigate();
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -70,7 +72,14 @@ const TransactionsPage: React.FC = () => {
         <div className="bg-white rounded-xl shadow-lg p-4 sm:p-8">
           {/* Header Section */}
           <div className="flex flex-col sm:flex-row items-center justify-between mb-6 sm:mb-8 gap-4">
-            <div className="hidden sm:block flex-1"></div>
+            <div className="w-full sm:w-auto sm:flex-1 flex justify-center sm:justify-start">
+              <button
+                onClick={() => navigate('/add')}
+                className="px-4 py-2 text-sm font-medium text-white bg-green-500 rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-all duration-200"
+              >
+                Add Transaction
+              </button>
+            </div>
             <div className="text-center flex-1">
               <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">
                 Transactions
