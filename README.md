@@ -18,6 +18,9 @@ A simple transaction management app built with React and Node.js. Users can crea
 - Supabase (PostgreSQL as a Service)
 - Environment variables management with dotenv
 
+## Challenges & Decisions
+The development process was smooth and straightforward, with no significant challenges encountered. The chosen tech stack and tools worked well together, making the implementation process efficient.
+
 ## Project Structure
 
 ```

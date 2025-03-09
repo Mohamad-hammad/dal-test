@@ -1,5 +1,6 @@
 import React from "react";
 
+// Transaction data structure
 interface Transaction {
   id: string;
   amount: string | number;
@@ -7,22 +8,29 @@ interface Transaction {
   timestamp: string;
 }
 
+// Component props interface
 interface TransactionListProps {
   transactions: Transaction[];
   isLoading: boolean;
   error: string | null;
 }
 
+// Format amount to 2 decimal places
 const formatAmount = (amount: string | number): string => {
   const numericAmount = typeof amount === "string" ? parseFloat(amount) : amount;
   return numericAmount.toFixed(2);
 };
 
+// Format date to local string
 const formatDate = (timestamp: string): string => {
   const date = new Date(timestamp);
   return date.toLocaleDateString() + ' ' + date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 };
 
+/**
+ * TransactionList component that displays a list of transactions
+ * Handles loading, error, and empty states
+ */
 const TransactionList: React.FC<TransactionListProps> = ({
   transactions,
   isLoading,

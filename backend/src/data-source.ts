@@ -3,6 +3,8 @@ import { Transaction } from "./entities/Transaction";
 import dotenv from "dotenv";
 
 dotenv.config();
+
+// Database configuration for Supabase PostgreSQL with TypeORM
 export const AppDataSource = new DataSource({
   type: "postgres",
   host: process.env.DB_HOST,
