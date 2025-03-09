@@ -68,10 +68,10 @@ const TransactionsPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
-      <div className="max-w-7xl mx-auto p-4 sm:p-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="bg-white rounded-2xl shadow-xl p-4 sm:p-8 border border-gray-100">
           {/* Header Section */}
-          <div className="flex flex-col sm:flex-row items-center justify-between mb-8 sm:mb-10 gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-between mb-6 sm:mb-8 gap-4">
             <div className="w-full sm:w-auto sm:flex-1 flex justify-center sm:justify-start">
               <button
                 onClick={() => navigate('/add')}
