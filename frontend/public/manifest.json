@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Transaction Manager",
+  "name": "Transaction Manager - Track your financial transactions",
   "icons": [
     {
       "src": "favicon.ico",
